@@ -1,7 +1,6 @@
 var canvas = document.getElementById('pongCanvas');
 var context = canvas.getContext('2d');
 
-
 function GameBoard(x, y, width, height) {
   this.x = x;
   this.y = y;
