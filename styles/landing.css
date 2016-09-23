@@ -1,0 +1,16 @@
+#player-scoreboard {
+  text-align: center;
+  padding-top: 50px;
+}
+
+#pongCanvas {
+  background: black;
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 0;
+}
+
+#computer-scoreboard {
+  text-align: center;
+  padding-top: 50px;
+}

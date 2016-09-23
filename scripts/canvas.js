@@ -10,6 +10,11 @@ var player = new Player();
 var computer = new Computer();
 var ball = new Ball(200, 300);
 
+var playerScore = 0;
+var computerScore = 0;
+var pscore = document.getElementById("player-score");
+var cscore = document.getElementById("computer-score");
+
 var keysDown = {};
 
 var render = function() {
@@ -136,6 +141,14 @@ Ball.prototype.update = function(paddle1, paddle2) {
   }
 
   if (this.y < 0 || this.y > 600) {
+      if (this.y < 0) {
+        playerScore++;
+        console.log(playerScore);
+      } else if (this.y > 600) {
+        computerScore++;
+        console.log(computerScore);
+      };
+      changeScoreBoard();
     this.xSpeed = 0;
     this.ySpeed = 3;
     this.x = 200;
@@ -157,6 +170,12 @@ Ball.prototype.update = function(paddle1, paddle2) {
   }
 };
 
+function changeScoreBoard () {
+    console.log("changeScoreBoard Computer Score = " + computerScore);
+    pscore.innerHTML= playerScore;
+    cscore.innerHTML = computerScore;
+}
+
 animate(step);
 
 window.addEventListener('keydown', function(event) {
@@ -166,3 +185,5 @@ window.addEventListener('keydown', function(event) {
 window.addEventListener('keyup', function(event) {
   delete keysDown[event.keyCode];
 });
+
+// window.onload = changeScoreBoard();
