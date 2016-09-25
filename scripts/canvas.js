@@ -143,12 +143,12 @@ Ball.prototype.update = function(paddle1, paddle2) {
   if (this.y < 0 || this.y > 600) {
       if (this.y < 0) {
         playerScore++;
-        console.log(playerScore);
+        changeScoreBoard();
       } else if (this.y > 600) {
         computerScore++;
-        console.log(computerScore);
+        changeScoreBoard();
       };
-      changeScoreBoard();
+
     this.xSpeed = 0;
     this.ySpeed = 3;
     this.x = 200;
@@ -168,12 +168,29 @@ Ball.prototype.update = function(paddle1, paddle2) {
       this.y += this.ySpeed;
     }
   }
+
 };
 
-function changeScoreBoard () {
-    console.log("changeScoreBoard Computer Score = " + computerScore);
-    pscore.innerHTML= playerScore;
+// increments Vanilla JS scoreboard on screen (see ball.update as ball passes screen)
+function changeScoreBoard() {
+    pscore.innerHTML = playerScore;
     cscore.innerHTML = computerScore;
+
+    if (playerScore === 3) {
+      window.alert("You Won! Game will reset now");
+      resetBoard();
+    } else if (computerScore === 3) {
+      window.alert("Computer Won.  Game will reset now")
+      resetBoard();
+    }
+}
+
+// resets the board upon player or computer scoring 11 points (see function changeScoreBoard)
+function resetBoard() {
+  playerScore = 0;
+  computerScore = 0;
+  pscore.innerHTML = 0;
+  cscore.innerHTML = 0;
 }
 
 animate(step);
