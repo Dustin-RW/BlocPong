@@ -176,10 +176,10 @@ function changeScoreBoard() {
     pscore.innerHTML = playerScore;
     cscore.innerHTML = computerScore;
 
-    if (playerScore === 3) {
+    if (playerScore === 11) {
       window.alert("You Won! Game will reset now");
       resetBoard();
-    } else if (computerScore === 3) {
+    } else if (computerScore === 11) {
       window.alert("Computer Won.  Game will reset now")
       resetBoard();
     }
